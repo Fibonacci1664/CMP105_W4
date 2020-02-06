@@ -1,9 +1,8 @@
 #include "Enemy.h"
-#include "Player.h"
 
 Enemy::Enemy()
 {
-	m_increment = sf::Vector2f(400, 400);
+	m_increment = sf::Vector2f(200, 200);
 }
 
 Enemy::~Enemy()

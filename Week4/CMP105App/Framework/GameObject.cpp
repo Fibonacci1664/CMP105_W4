@@ -3,6 +3,7 @@
 GameObject::GameObject()
 {
 	input = nullptr;
+	window = nullptr;
 }
 
 GameObject::~GameObject()
@@ -27,6 +28,7 @@ void GameObject::setVelocity(sf::Vector2f vel)
 {
 	velocity = vel;
 }
+
 void GameObject::setVelocity(float vx, float vy)
 {
 	velocity.x = vx;

@@ -13,11 +13,13 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	 * instance of a created object.
 	 */
 	mushTexture.loadFromFile("gfx/mushroom_1.png");
-	goombaTexture.loadFromFile("gfx/Goomba.png");
+	goombaTexture.loadFromFile("gfx/goomba_1.png");
 
 	player_1.setInput(in);
+	player_1.setWindow(hwnd);
 	player_1.setTexture(&mushTexture);
 	player_1.setSize(sf::Vector2f(80, 80));
+	player_1.setOrigin(sf::Vector2f(player_1.getSize().x / 2, player_1.getSize().y / 2));
 	player_1.setPosition(100, 100);
 
 	goomba_1.setInput(in);
@@ -26,11 +28,19 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	goomba_1.setSize(sf::Vector2f(100, 100));
 	goomba_1.setOrigin(sf::Vector2f(goomba_1.getSize().x / 2, goomba_1.getSize().y / 2));
 	goomba_1.setPosition(400, 400);
+
+	goomba_2.setInput(in);
+	goomba_2.setWindow(hwnd);
+	goomba_2.setTexture(&goombaTexture);
+	goomba_2.setSize(sf::Vector2f(100, 100));
+	goomba_2.setFillColor(sf::Color::Green);
+	goomba_2.setOrigin(sf::Vector2f(goomba_2.getSize().x / 2, goomba_2.getSize().y / 2));
+	goomba_2.setPosition(1000, 500);
 }
 
 Level::~Level()
 {
-
+	std::cout << "Level object destroyed!\n";
 }
 
 // handle user input
@@ -51,7 +61,7 @@ void Level::update(float dt)
 {
 	player_1.update(dt);
 	goomba_1.update(dt);
-
+	goomba_2.update(dt);
 }
 
 // Render level
@@ -61,6 +71,7 @@ void Level::render()
 
 	window->draw(player_1);
 	window->draw(goomba_1);
+	window->draw(goomba_2);
 
 	endDraw();
 }

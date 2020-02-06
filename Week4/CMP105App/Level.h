@@ -32,4 +32,5 @@ private:
 	sf::Texture goombaTexture;
 	Player player_1;
 	Enemy goomba_1;
+	Enemy goomba_2;
 };

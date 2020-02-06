@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player()
 {
 	m_increment = sf::Vector2f(400, 400);
@@ -40,5 +39,32 @@ void Player::handleInput(float dt)
 
 void Player::update(float dt)
 {
-	
+	checkBoundaryCollisions(dt);
+}
+
+void Player::checkBoundaryCollisions(float dt)
+{
+	// If we reach the right hand side of the window.
+	if (getPosition().x + getSize().x / 2 > window->getSize().x)
+	{
+		setPosition(sf::Vector2f(window->getSize().x - getSize().x / 2, getPosition().y));
+	}
+
+	// If we reach the left hand side of the window.
+	if (getPosition().x - getSize().x / 2 < 0)
+	{
+		setPosition(sf::Vector2f(0 + getSize().x / 2, getPosition().y));
+	}
+
+	// If we reach the bottom of the screen.
+	if (getPosition().y + getSize().y / 2 > window->getSize().y)
+	{
+		setPosition(sf::Vector2f(getPosition().x, window->getSize().y - getSize().y / 2));
+	}
+
+	// If we reach the top of the screen.
+	if (getPosition().y - getSize().y / 2 < 0)
+	{
+		setPosition(sf::Vector2f(getPosition().x, 0 + getSize().y / 2));
+	}
 }

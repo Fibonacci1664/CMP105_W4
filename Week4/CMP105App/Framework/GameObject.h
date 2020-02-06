@@ -7,6 +7,7 @@
 #pragma once
 #include "SFML\Graphics.hpp"
 #include "Input.h"
+#include <SFML\Graphics\RenderWindow.hpp>
 
 class GameObject : public sf::RectangleShape		/*
 													 * Inheriting from rectangle and not sf::Sprite
@@ -44,6 +45,12 @@ public:
 	// Set the input component
 	void setInput(Input* in) { input = in; };
 
+	inline
+		// Set the window component.
+		// WHY DO THIS ONLY WORK WINDOW AND NOT RENDERWINDOW??
+		// WE GET OVERRIDE ERROR.
+		void setWindow(sf::Window* hwnd) { window = hwnd; }	
+
 protected:
 	// Sprite properties
 	sf::Vector2f velocity;
@@ -55,4 +62,9 @@ protected:
 
 	// Input component
 	Input* input;
+
+	// Window component.
+	// WHY DO THIS ONLY WORK WITH WINDOW AND NOT RENDERWINDOW??
+	// WE GET OVERRIDE ERROR IF RENDERWINDOW IS USED!.
+	sf::Window* window;
 };
