@@ -12,12 +12,20 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	 * that enemy object having to load its own texture for each and
 	 * instance of a created object.
 	 */
-	texture.loadFromFile("gfx/mushroom_1.png");
+	mushTexture.loadFromFile("gfx/mushroom_1.png");
+	goombaTexture.loadFromFile("gfx/Goomba.png");
 
 	player_1.setInput(in);
-	player_1.setTexture(&texture);
+	player_1.setTexture(&mushTexture);
 	player_1.setSize(sf::Vector2f(80, 80));
 	player_1.setPosition(100, 100);
+
+	goomba_1.setInput(in);
+	goomba_1.setWindow(hwnd);
+	goomba_1.setTexture(&goombaTexture);
+	goomba_1.setSize(sf::Vector2f(100, 100));
+	goomba_1.setOrigin(sf::Vector2f(goomba_1.getSize().x / 2, goomba_1.getSize().y / 2));
+	goomba_1.setPosition(400, 400);
 }
 
 Level::~Level()
@@ -42,6 +50,8 @@ void Level::handleInput(float dt)
 void Level::update(float dt)
 {
 	player_1.update(dt);
+	goomba_1.update(dt);
+
 }
 
 // Render level
@@ -49,8 +59,8 @@ void Level::render()
 {
 	beginDraw();
 
-	window->draw(testSprite);
 	window->draw(player_1);
+	window->draw(goomba_1);
 
 	endDraw();
 }

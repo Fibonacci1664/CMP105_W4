@@ -6,6 +6,7 @@
 #include <string.h>
 #include <iostream>
 #include "Player.h"
+#include "Enemy.h"
 
 
 class Level{
@@ -27,6 +28,8 @@ private:
 	Input* input;
 
 	// Level objects
-	sf::Texture texture;
+	sf::Texture mushTexture;
+	sf::Texture goombaTexture;
 	Player player_1;
+	Enemy goomba_1;
 };

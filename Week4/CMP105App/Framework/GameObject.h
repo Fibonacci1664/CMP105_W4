@@ -53,6 +53,6 @@ protected:
 	sf::FloatRect collisionBox;
 	bool collider;
 
-	// input component
+	// Input component
 	Input* input;
 };
