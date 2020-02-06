@@ -8,7 +8,13 @@
 #include "SFML\Graphics.hpp"
 #include "Input.h"
 
-class GameObject : public sf::RectangleShape
+class GameObject : public sf::RectangleShape		/*
+													 * Inheriting from rectangle and not sf::Sprite
+													 * sf:Sprite actaully inherits from rectangle.
+													 * We do this so that we can specifiacly set size
+													 * which you cannot do with a sf::Sprite object
+													 * without messing around with scale.
+													 */
 {
 public:
 	GameObject();
