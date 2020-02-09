@@ -4,6 +4,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 {
 	window = hwnd;
 	input = in;
+	scrollSpeed = 400;
 
 	hwnd->setMouseCursorVisible(false);
 
@@ -37,12 +38,22 @@ void Level::handleInput(float dt)
 
 	if (input->isKeyDown(sf::Keyboard::L))
 	{
-		view.move(1, 0);
+		view.move(scrollSpeed * dt, 0);
+
+		if (view.getCenter().x > (bg.getSize().x - view.getSize().x / 2))
+		{
+			view.move(-scrollSpeed * dt, 0);
+		}
 	}
 
 	if (input->isKeyDown(sf::Keyboard::J))
 	{
-		view.move(-1, 0);
+		view.move(-scrollSpeed * dt, 0);
+
+		if (view.getCenter().x < (0 + view.getSize().x / 2))
+		{
+			view.move(scrollSpeed * dt, 0);
+		}
 	}
 
 	// Dealt with level inputs now its time to deal with player inputs.

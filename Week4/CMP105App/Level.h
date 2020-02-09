@@ -49,4 +49,5 @@ private:
 	Cursor customCursor;
 	Background bg;
 	sf::View view;
+	int scrollSpeed;
 };
