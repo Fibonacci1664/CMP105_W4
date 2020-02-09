@@ -7,9 +7,12 @@
 #include <iostream>
 #include "Player.h"
 #include "Enemy.h"
+#include "Cursor.h"
+#include "Background.h"
 
 
-class Level{
+class Level
+{
 public:
 	Level(sf::RenderWindow* hwnd, Input* in);
 	~Level();
@@ -22,6 +25,13 @@ private:
 	// Default functions for rendering to the screen.
 	void beginDraw();
 	void endDraw();
+	void loadTextures();
+	void initPlayer();
+	void initKoopaEnemy();
+	void initGoombaEnemy();
+	void initCursor();
+	void initBackground();
+
 
 	// Default variables for level class.
 	sf::RenderWindow* window;
@@ -30,7 +40,13 @@ private:
 	// Level objects
 	sf::Texture mushTexture;
 	sf::Texture goombaTexture;
+	sf::Texture koopaTexture;
+	sf::Texture cursorIcon;
+	sf::Texture backGround;
 	Player player_1;
 	Enemy goomba_1;
-	Enemy goomba_2;
+	Enemy koopa_1;
+	Cursor customCursor;
+	Background bg;
+	sf::View view;
 };

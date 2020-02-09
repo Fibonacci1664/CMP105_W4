@@ -42,14 +42,14 @@ public:
 	void setCollisionBox(sf::FloatRect fr) { collisionBox = fr; };
 	virtual void collisionResponse(GameObject* collider);
 
-	// Set the input component
-	void setInput(Input* in) { input = in; };
+	inline
+		// Set the input component
+		void setInput(Input* in) { input = in; };
 
 	inline
 		// Set the window component.
-		// WHY DO THIS ONLY WORK WINDOW AND NOT RENDERWINDOW??
-		// WE GET OVERRIDE ERROR.
-		void setWindow(sf::Window* hwnd) { window = hwnd; }	
+		// WHY SHOULD THIS BE DONE IN ENEMY CLASS AND NOT HERE?
+		void setWindow(sf::RenderWindow* hwnd) { window = hwnd; }	
 
 protected:
 	// Sprite properties
@@ -64,7 +64,6 @@ protected:
 	Input* input;
 
 	// Window component.
-	// WHY DO THIS ONLY WORK WITH WINDOW AND NOT RENDERWINDOW??
-	// WE GET OVERRIDE ERROR IF RENDERWINDOW IS USED!.
-	sf::Window* window;
+	// WHY SHOULD THIS BE DONE IN ENEMY CLASS AND NOT HERE?
+	sf::RenderWindow* window;
 };
