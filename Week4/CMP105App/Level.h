@@ -30,7 +30,6 @@ private:
 	void initKoopaEnemy();
 	void initGoombaEnemy();
 	void initCursor();
-	void initBackground();
 
 
 	// Default variables for level class.
