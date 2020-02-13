@@ -39,21 +39,26 @@ void Player::handleInput(float dt)
 
 void Player::update(float dt)
 {
-	checkBoundaryCollisions(dt);
+
 }
 
-void Player::checkBoundaryCollisions(float dt)
+void Player::update(float dt, sf::View& view)
 {
-	// If we reach the right hand side of the window.
-	if (getPosition().x + getSize().x / 2 > window->getSize().x)
+	checkBoundaryCollisions(dt, view);
+}
+
+void Player::checkBoundaryCollisions(float dt, sf::View& view)
+{
+	// If we reach the right hand side of the view.
+	if (getPosition().x + getSize().x / 2 > (view.getCenter().x + view.getSize().x / 2.0f))
 	{
-		setPosition(sf::Vector2f(window->getSize().x - getSize().x / 2, getPosition().y));
+		setPosition(sf::Vector2f((view.getCenter().x + view.getSize().x / 2) - getSize().x / 2.0f, getPosition().y));
 	}
 
-	// If we reach the left hand side of the window.
-	if (getPosition().x - getSize().x / 2 < 0)
+	// If we reach the left hand side of the view.
+	if (getPosition().x - getSize().x / 2 < (view.getCenter().x - view.getSize().x / 2.0f))
 	{
-		setPosition(sf::Vector2f(0 + getSize().x / 2, getPosition().y));
+		setPosition(sf::Vector2f((view.getCenter().x - view.getSize().x / 2.0f) + getSize().x / 2, getPosition().y));
 	}
 
 	// If we reach the bottom of the screen.

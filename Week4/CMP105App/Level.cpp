@@ -36,6 +36,30 @@ void Level::handleInput(float dt)
 		window->close();
 	}
 
+	// Scroll the camera view to the right.
+	if (player_1.getPosition().x > view.getCenter().x)
+	{
+		view.move(scrollSpeed * dt, 0);
+
+		if (view.getCenter().x > (bg.getSize().x - view.getSize().x / 2))
+		{
+			view.move(-scrollSpeed * dt, 0);
+		}
+	}
+
+	// Uncomment this if you wish to have a camera view that can also scroll to the left.
+	/*if (player_1.getPosition().x < view.getCenter().x)
+	{
+		view.move(-scrollSpeed * dt, 0);
+
+		if (view.getCenter().x < (0 + view.getSize().x / 2))
+		{
+			view.move(scrollSpeed * dt, 0);
+		}
+	}*/
+
+
+	// The follwing 2 if statments handle camera view movement based on keyboard input.
 	if (input->isKeyDown(sf::Keyboard::L))
 	{
 		view.move(scrollSpeed * dt, 0);
@@ -63,7 +87,7 @@ void Level::handleInput(float dt)
 // Update game objects
 void Level::update(float dt)
 {
-	player_1.update(dt);
+	player_1.update(dt, view);
 	goomba_1.update(dt);
 	koopa_1.update(dt);
 	customCursor.update(dt, view);
