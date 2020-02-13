@@ -2,7 +2,7 @@
 
 Background::Background()
 {
-	m_increment = sf::Vector2f(400, 400);
+	
 }
 
 Background::~Background()

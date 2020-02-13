@@ -66,7 +66,7 @@ void Level::update(float dt)
 	player_1.update(dt);
 	goomba_1.update(dt);
 	koopa_1.update(dt);
-	customCursor.update(dt);
+	customCursor.update(dt, view);
 }
 
 // Render level

@@ -11,7 +11,6 @@ public:
 	void update(float dt) override;
 
 private:
-	sf::Vector2f m_increment;
 	
 };
 
