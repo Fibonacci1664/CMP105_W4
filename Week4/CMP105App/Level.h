@@ -42,7 +42,7 @@ private:
 	sf::Texture goombaTexture;
 	sf::Texture koopaTexture;
 	sf::Texture cursorIcon;
-	sf::Texture backGround;
+	
 	Player player_1;
 	Enemy goomba_1;
 	Enemy koopa_1;

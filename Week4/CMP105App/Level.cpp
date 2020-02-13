@@ -19,7 +19,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	initGoombaEnemy();
 	initKoopaEnemy();
 	initCursor();
-	initBackground();
+	
 }
 
 Level::~Level()
@@ -133,7 +133,6 @@ void Level::loadTextures()
 	goombaTexture.loadFromFile("gfx/goomba_1.png");
 	koopaTexture.loadFromFile("gfx/koopa_troopa.png");
 	cursorIcon.loadFromFile("gfx/bb_cursor_5.png");
-	backGround.loadFromFile("gfx/Level1_1.png");
 }
 
 void Level::initPlayer()
@@ -174,12 +173,4 @@ void Level::initCursor()
 	customCursor.setSize(sf::Vector2f(25, 48));
 	//customCursor.setOrigin(sf::Vector2f(customCursor.getSize().x / 2, customCursor.getSize().y / 2));
 	//customCursor.setPosition(400, 400);
-}
-
-void Level::initBackground()
-{
-	/*bg.setInput(input);
-	bg.setWindow(window);*/
-	bg.setTexture(&backGround);
-	bg.setSize(sf::Vector2f(11038, 675));
 }

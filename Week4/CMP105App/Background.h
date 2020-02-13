@@ -11,6 +11,9 @@ public:
 	void update(float dt) override;
 
 private:
-	
+	void loadTextures();
+	void initBackground();
+
+	sf::Texture backGround;	
 };
 
